@@ -1,0 +1,31 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+int main()
+ {
+	//code
+	int t; cin>>t;
+	while(t--){
+	int n; cin>>n;
+        ll a[n];
+        ll actualSum = 0;
+        ll actualSqSum = 0;
+        for(int i=0;i<n;i++) { 
+            cin>>a[i]; 
+            actualSum+=a[i]; 
+            actualSqSum+=(a[i]*a[i]);
+        }
+        ll idealSum = (n*(n+1))/2;
+        ll idealSqSum = (n*(n+1)*(2*n+1))/6;
+        ll M,R;
+        ll MmR = idealSum-actualSum;
+        ll MsqmR = idealSqSum-actualSqSum;
+        ll MaR = MsqmR/MmR;
+        M= (MmR+MaR)/2;
+        R=MaR-M;
+        cout<<R<<" "<<M<<endl;
+	
+	}
+	return 0;
+}
