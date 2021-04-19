@@ -1,0 +1,39 @@
+vector<int> Solution::spiralOrder(const vector<vector<int> > &A) {
+
+vector<int> res;
+int row_start=0,row_end=A.size()-1,col_start=0,col_end=A[0].size()-1;
+int flag=0;
+
+while(row_start<=row_end && col_start<=col_end  ){
+    if(flag==0){
+        for(int i=col_start;i<=col_end;i++){
+            res.push_back(A[row_start][i]);
+        }
+        row_start++;
+        flag=1;
+    }
+    else if(flag==1){
+        for(int j=row_start;j<=row_end;j++){
+            res.push_back(A[j][col_end]);
+        }
+        col_end--;
+        flag=2;
+    }
+    else if(flag==2){
+        for(int i=col_end;i>=col_start;i--){
+            res.push_back(A[row_end][i]);
+        }
+        row_end--;
+        flag=3;
+    }
+    else if(flag==3){
+        for(int j=row_end;j>=row_start;j--){
+            res.push_back(A[j][col_start]);
+        }
+        col_start++;
+    }
+    
+}
+
+return res;
+}
