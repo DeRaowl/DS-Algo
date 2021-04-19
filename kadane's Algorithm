@@ -1,0 +1,20 @@
+     int Kadens(int Arr,int N,int K){   
+        int i =0;
+        int j =0;
+        int maxE = INT_MIN;
+        int sum = 0;
+        while(j<N){
+            sum = sum + Arr[j];
+            if(j-i+1 < K){
+                j++;
+            }
+            else if(j-i+1 == K){
+                maxE = max(sum,maxE);
+                sum = sum - Arr[i];
+                i++;
+                j++;
+                
+            }
+        }
+        return maxE;
+        }
